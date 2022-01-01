@@ -1,6 +1,7 @@
 const Playlist = require('../models/playlist');
 const express = require('express');
 const application = express();
+const connection = require('../db/dbconnection')
 application.use(express.json);
 
 module.exports.pdetails = async (req, res) => {

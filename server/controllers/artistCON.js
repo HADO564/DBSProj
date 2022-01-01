@@ -1,6 +1,7 @@
 const sequelize = require("../db/dbconnection");
 const Artist = require("../models/artist");
 const Sequelize = require('sequelize');
+const connection = require('../db/dbconnection')
 const express = require('express');
 const application = express();
 application.use(express.json);
