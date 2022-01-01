@@ -1,4 +1,4 @@
-const sequelize= require('sequelize');
+const Sequelize= require('sequelize');
 const sequelize = require('../db/dbconnection');
 const ArtistModel = (sequelize, Sequelize) => {
     const {INTEGER, STRING, FLOAT, BOOLEAN, DATE} = Sequelize

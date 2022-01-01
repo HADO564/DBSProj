@@ -1,9 +1,16 @@
-const express = require('express');
-const apiRouter = require('./routes/user');
-const app = express();
-app.use(express.json());
+const mysql = require('mysql');
+const Sequelize = require('sequelize');
+const connection = require('./db/dbconnection')
+const dotenv = require('dotenv');
+const server = new 
+dotenv.config({path:"./config.env"});
+const app = require("./app.js");
 
-app.use('/api/chirps',apiRouter);
-app.listen('8080', () => {
-    console.log(`Listening to port 8080`);
+const port = 8080;
+app.get('/',(req,res)=>
+{
+    res.send("Going to homepage");
+});
+app.listen(port,()=>{
+    console.log(`App running on port ${port}`);
 })

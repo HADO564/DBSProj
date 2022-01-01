@@ -35,8 +35,9 @@ const PlayModel = (sequelize, Sequelize) => {
             type:STRING
         }
     })
+    Playlist.belongsTo(Account);
     return Playlist;
 }
-Playlist.belongsTo(Account);
+
 
 module.exports= PlayModel;

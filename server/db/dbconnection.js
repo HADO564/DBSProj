@@ -8,6 +8,8 @@ const connection=mysql.createPool({
     database:'hado',
     port:'3306'
 });
-const sequelize = new sequelize('hado','root','HADOzindabad21')
+const sequelize = new Sequelize('hado','root','HADOzindabad21',{
+    dialect: 'mysql'
+})
 module.exports =connection;
 module.exports = sequelize;

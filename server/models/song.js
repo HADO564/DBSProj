@@ -1,7 +1,5 @@
 const Sequelize = require('sequelize');
 
-const sequelize = require('../db/dbconnection');
-const Album = require('./album');
 const SongModel = (sequelize,Sequelize)=>{
     const {INTEGER, STRING, FLOAT, BOOLEAN, DATE} = Sequelize
     const Song = sequelize.define('Song',{
@@ -11,8 +9,9 @@ const SongModel = (sequelize,Sequelize)=>{
         Sname:{type:STRING,allowNull:false},
         Genre:{type:STRING},
     })
+    Song.belongsTo(Album);
     return Song;
 }
 
-Song.belongsTo(Album);
+
 module.exports=SongModel;
