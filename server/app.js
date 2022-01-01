@@ -8,7 +8,8 @@ const songRouter = require('./routes/songrouter');
 const accountRouter = require('./routes/accountrouter');
 const albumRouter = require('./routes/albumrouter');
 app.use(express.json());
+// app.use("/playlist", playlistRouter)
+app.use("/user", accountRouter)
 // app.use(express.json);
-
 
 module.exports=  app; 

@@ -1,8 +1,10 @@
 const account = require('../models/account');
 const express = require('express');
 const application = express();
+const connection = require('../db/dbconnection')
 application.use(express.json);
 module.exports.findUsers = async (req, res) => {
+    console.log("received a request")
     try {
         const {
             query
