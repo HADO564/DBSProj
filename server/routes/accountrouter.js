@@ -1,13 +1,13 @@
-const express= require('express');
+const express = require("express");
 const router = express.Router();
 
-const accountController = require('../controllers/accountCON');
+const accountController = require("../controllers/accountCON");
 
 // router.get("/search/users",accountController.findUsers);
 
-router.post("/users/search", accountController.findUsers);
+router.post("/search", accountController.findUsers);
 
-router.get("/user/settings/:id",accountController.SettingsUpdate);
-router.get("/user/detail",accountController.accDetails);
+router.get("/settings/:id", accountController.SettingsUpdate);
+router.get("/detail", accountController.accDetails);
 
-module.exports=router;
+module.exports = router;
