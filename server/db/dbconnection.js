@@ -1,15 +1,18 @@
-const mysql = require('mysql');
-const Sequelize = require('sequelize');
-const connection=mysql.createPool({
-    connectionLimit:10,
-    host: 'localhost',
-    user: 'root',
-    password:'HADOzindabad21',
-    database:'hado',
-    port:'3306'
+const mysql = require("mysql2");
+
+const connection = mysql.createConnection({
+  host: "localhost",
+  user: "hado",
+  password: "12345",
+  database: "sakila",
 });
-const sequelize = new Sequelize('hado','root','HADOzindabad21',{
-    dialect: 'mysql'
-})
-module.exports =connection;
-module.exports = sequelize;
+
+connection.connect(function (err) {
+  if (err) {
+    return console.error("error: " + err.message);
+  }
+
+  console.log("Connected to the MySQL server.");
+});
+
+module.exports = connection;
