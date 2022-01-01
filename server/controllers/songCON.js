@@ -1,40 +1,29 @@
-const sequelize = require("../db/dbconnection");
-const Sequelize = require('sequelize')
-const Song = require("../models/song");
 const express = require('express');
-const connection = require('../db/dbconnection')
+const db = require('../db/dbconnection')
 const application = express();
 application.use(express.json);
 
 module.exports.sdetails = async (req, res) => {
     try {
-        const {
-            query
-        } = req.body;
-        connection.query('Select * from players', (err, results) => {
+        const result = db.query(`Select * from Songs where sname = '${req.body.target};`, (err, results) => {
             if (err) throw err;
-            res.json(results);
-        })
+            console.log(results);
+        });
+        res.send(result.results);
     }
-    catch(err) {
+    catch(err){
         console.log(err)
     }
 } 
 module.exports.addToPlaylist = async (req, res) => {
     try {
-        const {
-            query
-        } = req.body;
-        const {
-            id
-        }=req.params;
-
-        connection.query(query, (err, results) => {
+        const result = db.query(`Select * from Songs where sname = '${req.body.target};`, (err, results) => {
             if (err) throw err;
-            res.json(results);
-        })
+            console.log(results);
+        });
+        res.send(result.results);
     }
-    catch(err) {
+    catch(err){
         console.log(err)
     }
 } 

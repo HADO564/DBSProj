@@ -12,14 +12,19 @@ app.use(express.json());
 app.get("/", async (req, res) => {
   res.send("Going to homepage");
   const result = db.query(
-    `SELECT * FROM actor WHERE actor.first_name = '${req.body.name}';`,
-    (err, d) => {
-      console.log(err, d);
+    `SELECT * FROM players WHERE players.pname = '${req.body.name}';`,
+    (err, results) => {
+      console.log(results);
     }
   );
+  res.send(result.results);
   //   const [result, meta] = sequelize.query(`SELECT * FROM Actor;`);
 });
 app.use("/user", accountRouter);
+app.use("/artist",artistRouter);
+app.use("/album",albumRouter);
+app.use("/song",songRouter);
+app.use("/playlist",playlistRouter);
 // app.use(express.json);
 
 module.exports = app;

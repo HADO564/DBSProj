@@ -1,17 +1,15 @@
 const express = require('express');
 const application = express();
 application.use(express.json);
-const connection = require('../db/dbconnection')
-const sequelize = require('../db/dbconnection');
-const Sequelize = require('sequelize');
+const db = require('../db/dbconnection')
+
 module.exports.aldetail = async (req, res) => {
     try{
-        const {query}= req.body;
-        connection.query(query,(err,results)=>{
-            if(err)
-            throw err;
-            res.json(results);
-        })
+        const result = db.query(`Select * from Album where alname = '${req.body.target};`,(err,results)=>{
+            if(err) throw err;
+            console.log(results);
+        });
+        res.send(result.results);
 
     }
     catch(err){
