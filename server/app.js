@@ -20,11 +20,11 @@ app.get("/", async (req, res) => {
   res.send(result.results);
   //   const [result, meta] = sequelize.query(`SELECT * FROM Actor;`);
 });
-app.use("/user", accountRouter);
-app.use("/artist",artistRouter);
-app.use("/album",albumRouter);
-app.use("/song",songRouter);
-app.use("/playlist",playlistRouter);
+app.use("/user/", accountRouter);
+app.use("/artist/", artistRouter);
+app.use("/album/", albumRouter);
+app.use("/song/", songRouter);
+app.use("/playlist/", playlistRouter);
 // app.use(express.json);
 
 module.exports = app;
